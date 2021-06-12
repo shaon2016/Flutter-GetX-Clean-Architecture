@@ -1,3 +1,4 @@
+import 'package:clean_architecture/core/database/database.dart';
 import 'package:clean_architecture/core/network/rest_client.dart';
 import 'package:clean_architecture/feature/home/binding.dart';
 import 'package:clean_architecture/feature/home/view/HomePage.dart';
@@ -11,6 +12,7 @@ void main() {
 
 initServices() async {
   await Get.putAsync(() => RestClient().init());
+  await Get.putAsync(() => AppDb.init());
 }
 
 class MyApp extends StatelessWidget {

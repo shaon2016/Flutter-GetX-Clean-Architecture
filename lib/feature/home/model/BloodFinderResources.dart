@@ -1,14 +1,14 @@
 class BloodFinderResources {
-  int code;
-  List<String> messages;
-  Data data;
+  late int code;
+  late List<String> messages;
+  late Data data;
 
-  BloodFinderResources({this.code, this.messages, this.data});
+  BloodFinderResources({required this.code, required this.messages, required this.data});
 
   BloodFinderResources.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     messages = json['messages'].cast<String>();
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = (json['data'] != null ? new Data.fromJson(json['data']) : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -23,20 +23,20 @@ class BloodFinderResources {
 }
 
 class Data {
-  List<BloodGroups> bloodGroups;
-  List<Companies> companies;
+  late List<BloodGroups> bloodGroups;
+  late List<Companies> companies;
 
-  Data({this.bloodGroups, this.companies});
+  Data({required this.bloodGroups, required this.companies});
 
   Data.fromJson(Map<String, dynamic> json) {
     if (json['blood_groups'] != null) {
-      bloodGroups = new List<BloodGroups>();
+      bloodGroups = <BloodGroups>[];
       json['blood_groups'].forEach((v) {
         bloodGroups.add(new BloodGroups.fromJson(v));
       });
     }
     if (json['companies'] != null) {
-      companies = new List<Companies>();
+      companies = <Companies>[];
       json['companies'].forEach((v) {
         companies.add(new Companies.fromJson(v));
       });
@@ -56,9 +56,9 @@ class Data {
 }
 
 class BloodGroups {
-  String bloodGroup;
+  late String bloodGroup;
 
-  BloodGroups({this.bloodGroup});
+  BloodGroups({required this.bloodGroup});
 
   BloodGroups.fromJson(Map<String, dynamic> json) {
     bloodGroup = json['blood_group'];
@@ -72,15 +72,15 @@ class BloodGroups {
 }
 
 class Companies {
-  String companyName;
-  List<Departments> departments;
+  late String companyName;
+  late List<Departments> departments;
 
-  Companies({this.companyName, this.departments});
+  Companies({required this.companyName, required this.departments});
 
   Companies.fromJson(Map<String, dynamic> json) {
     companyName = json['company_name'];
     if (json['departments'] != null) {
-      departments = new List<Departments>();
+      departments = <Departments>[];
       json['departments'].forEach((v) {
         departments.add(new Departments.fromJson(v));
       });
@@ -98,9 +98,9 @@ class Companies {
 }
 
 class Departments {
-  String departmentName;
+  late String departmentName;
 
-  Departments({this.departmentName});
+  Departments({required this.departmentName});
 
   Departments.fromJson(Map<String, dynamic> json) {
     departmentName = json['department_name'];

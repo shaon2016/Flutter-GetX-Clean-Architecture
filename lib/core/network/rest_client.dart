@@ -6,7 +6,7 @@ import 'package:dio/dio.dart' ;
 const BASE_URL = "https://hris.sslwireless.com/api/v1/";
 
 class RestClient extends g.GetxService {
-  Dio _dio;
+  late Dio _dio;
 
   Future<RestClient> init() async {
     _dio = Dio(BaseOptions(baseUrl: BASE_URL));
