@@ -1,4 +1,4 @@
-import 'package:clean_architecture/core/network/rest_client_impl.dart';
+import 'package:clean_architecture/core/network/rest_client.dart';
 import 'package:clean_architecture/feature/home/binding.dart';
 import 'package:clean_architecture/feature/home/view/HomePage.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ void main() {
 }
 
 initServices() async {
-  await Get.putAsync(() => RestClientImpl().init());
+  await Get.putAsync(() => RestClient().init());
 }
 
 class MyApp extends StatelessWidget {

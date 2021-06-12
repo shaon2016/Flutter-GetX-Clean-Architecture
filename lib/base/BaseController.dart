@@ -1,8 +1,8 @@
-import 'package:clean_architecture/core/network/rest_client_impl.dart';
+import 'package:clean_architecture/core/network/rest_client.dart';
 import 'package:get/get.dart';
 
 class BaseController extends GetxController {
-  RestClientImpl restClient;
+  RestClient restClient;
   final isLoading = false.obs;
 
   @override
