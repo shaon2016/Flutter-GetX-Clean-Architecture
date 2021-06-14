@@ -11,17 +11,21 @@ class HomePage extends GetView<HomeController> {
         appBar: AppBar(
           title: Text("Clean Architecture"),
         ),
-        body: Obx(() => controller.isLoading.value == true
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : ListView.builder(
-                itemBuilder: (ctx, index) {
-                  return ListTile(
-                    title: Text(controller.datas[index].bloodGroup),
+        body: controller.obx((state) => ListView.builder(
+          controller: controller.scroll,
+          itemBuilder: (ctx, index) {
+                if (controller.isToLoadMore &&
+                    controller.donors.length - 1 == index)
+                  return Center(
+                    child: CircularProgressIndicator(),
                   );
-                },
-                itemCount: controller.datas.length,
-              )));
+                return ListTile(
+                  title: Text(controller.donors[index].name),
+                  subtitle: Text(controller.donors[index].designation),
+                );
+
+              },
+              itemCount: controller.donors.length,
+            )));
   }
 }

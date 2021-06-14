@@ -11,8 +11,8 @@ void main() {
 }
 
 initServices() async {
-  await Get.putAsync(() => RestClient().init());
-  await Get.putAsync(() => AppDb.init());
+  await Get.putAsync<RestClient>(() => RestClient().init());
+  await Get.putAsync<AppDb>(() => AppDb.init());
 }
 
 class MyApp extends StatelessWidget {

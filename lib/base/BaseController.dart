@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 class BaseController extends GetxController {
   late RestClient restClient;
-  final isLoading = false.obs;
 
   @override
   onInit() {
@@ -11,11 +10,5 @@ class BaseController extends GetxController {
     restClient = Get.find();
   }
 
-  showLoading() {
-    isLoading.value = true;
-  }
 
-  hideLoading() {
-    isLoading.value = false;
-  }
 }

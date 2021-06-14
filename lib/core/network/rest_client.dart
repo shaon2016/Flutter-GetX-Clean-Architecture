@@ -28,8 +28,8 @@ class RestClient extends g.GetxService {
     }));
   }
 
-  Future<Response> getRequest(String url, Map<String, dynamic> params) async {
-    Response response;
+  Future<Response>? getRequest(String url, Map<String, dynamic> params) async {
+    Response? response;
     try {
       response = await _dio.get(url, queryParameters: params);
     } on DioError catch (e) {
@@ -40,8 +40,8 @@ class RestClient extends g.GetxService {
     return response;
   }
 
-  Future<Response> postRequest(String url, Map<String, dynamic> params) async {
-    Response response;
+  Future<Response>? postRequest(String url, Map<String, dynamic> params) async {
+    Response? response;
     try {
       response = await _dio.post(url, data: params);
     } on DioError catch (e) {
