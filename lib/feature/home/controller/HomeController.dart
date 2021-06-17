@@ -40,7 +40,8 @@ class HomeController extends BaseController with StateMixin, ScrollMixin {
       }
     } on Exception catch (e) {
       Get.showSnackbar(GetBar(
-        message: "$e",duration: Duration(milliseconds: 3000),
+        message: "$e",
+        duration: Duration(milliseconds: 3000),
       ));
     }
   }

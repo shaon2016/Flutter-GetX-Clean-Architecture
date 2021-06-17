@@ -64,10 +64,12 @@ class RestClient extends GetxService {
       } else {
         throw Exception("Something Went Wrong");
       }
-    } on SocketException {
+    } on SocketException catch(e) {
       throw Exception("No Internet Connection");
     } on FormatException {
       throw Exception("Bad Response Format!");
+    } on DioError catch (e){
+      throw Exception(e);
     } catch (e) {
       throw Exception("Something Went Wrong");
     }
