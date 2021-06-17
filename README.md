@@ -1,5 +1,3 @@
-# clean_architecture
-
 In this project we implemented Database using flutter floor package, Networking using flutter Dio package and managed state using GetX package. 
 
 Here is some of its view...
